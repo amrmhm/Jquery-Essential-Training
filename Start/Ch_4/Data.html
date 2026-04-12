@@ -6,18 +6,21 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script>
-        $("document").ready(function() {
+        $("document").ready(function () {
             $("#show").on("click", function (evt) {
                 // if there is any data, display it
-
+                alert(JSON.stringify($("#example").data(), null, " "));
             });
             $("#store").on("click", function (evt) {
+
                 // store some arbitrary data on the DIV object
+                $("#example").data("key1", "Amer");
+                $("#example").data("key2", "18");
 
             });
             $("#remove").on("click", function (evt) {
                 // clear the data from the DIV
-
+                $("#example").removeData("key2");
             });
         });
     </script>
@@ -27,7 +30,8 @@
     <h1>Using the Data Methods</h1>
     <div id="content">
 
-        <p>jQuery can associate arbitrary data with page elements. Use the controls below to exercise the data() and removeData()
+        <p>jQuery can associate arbitrary data with page elements. Use the controls below to exercise the data() and
+            removeData()
             functions on the example DIV element</p>
         <div id="example" data-key3="data attribute">
             <p class="a">This is paragraph 1</p>
