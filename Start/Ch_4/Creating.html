@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $("document").ready(function() {
+        $("document").ready(function () {
             $("#create").on("click", function (evt) {
                 createContent();
             });
@@ -19,23 +19,26 @@
         });
         function createContent() {
             // use the html() function to get the current HTML of an element
-            //alert($("#example").html());
+            // alert($("#example").html());
 
             // use the html() function to change the content of the div
+            // $("#example").html("<p> Hi There! <p>");
 
-            
             // create a new <p> and set the content of para1 to it
-
-            }
-        
-        function changeContent() {
-            // set the text content of the last paragraph
+            let newItem = $("<p> This is New Pargraph </p>");
+            $("#para1").html(newItem);
 
         }
-        
+
+        function changeContent() {
+            // set the text content of the last paragraph
+            $("p:last").text("I' ve Change Last Paragraph");
+
+        }
+
         function changeAllTheContent() {
             // Change the content of multiple tags at once
-
+            $("#example p").text("I' ve Change Last Paragraph");
         }
     </script>
 </head>
@@ -44,7 +47,8 @@
     <h1>Creating new document content</h1>
     <div id="content">
 
-        <p>jQuery makes the creation and manipulation of document content very easy. Rather than having to directly use the
+        <p>jQuery makes the creation and manipulation of document content very easy. Rather than having to directly use
+            the
             verbose DOM methods, you can roll several operations into just a few function calls.</p>
         <ul id="list1">
             <li><code>html(<i>str</i>)</code>: can be used to retrieve or set the HTML content of an element</li>
