@@ -6,22 +6,27 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             // Animate individual properties
-            $("#right").on("click", function() {
-
+            $("#right").on("click", function () {
+                $("#theDiv").animate({ "width": "500px" }, 1000);
             });
-            $("#text").on("click", function() {
+            $("#text").on("click", function () {
+                $("#theDiv").animate({ "font-size": "24pt" }, 1000);
 
             });
 
             // Animate the position of the element
-            $("#move").on("click", function() {
+            $("#move").on("click", function () {
+                $("#theDiv").animate({ "left": "500px" }, 1000, "linear");
 
             });
 
             // Animate multiple properties at the same time
-            $("#all").on("click", function() {
+            $("#all").on("click", function () {
+
+                $("#theDiv").animate({ "width": "500px", "font-size": "24pt", "left": "500px" }, 1000, "linear");
+
 
             });
         });
@@ -38,7 +43,7 @@
             font-size: 16pt;
             cursor: pointer;
         }
-        
+
         button {
             margin: 5pt 5pt 0 0;
         }
@@ -49,8 +54,10 @@
     <h1>Animating an Element's Properties</h1>
     <div id="content">
 
-        <p>The <code>animate()</code> function provides a way to create smooth animations on the properties of an object.</p>
-        <p>Click the buttons below this <code>&lt;div&gt;</code> element to see how various properties can be animated.</p>
+        <p>The <code>animate()</code> function provides a way to create smooth animations on the properties of an
+            object.</p>
+        <p>Click the buttons below this <code>&lt;div&gt;</code> element to see how various properties can be animated.
+        </p>
         <div id="theDiv">Animate Me</div>
         <button id="right">Grow Right</button>
         <button id="text">Animate Text</button>
