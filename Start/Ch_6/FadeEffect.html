@@ -6,33 +6,42 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             // Fade the element in
-            $("#fadein").on("click", function() {
-
+            $("#fadein").on("click", function () {
+                $("#theDiv").fadeIn("200");
             });
 
             // Fade an element out
-            $("#fadeout").on("click", function() {
+            $("#fadeout").on("click", function () {
+                $("#theDiv").fadeOut("600");
 
             });
 
             // Fade an element to a particular opacity
-            $("#fadeto3").on("click", function() {
+            $("#fadeto3").on("click", function () {
+                $("#theDiv").fadeTo("slow", "0.3");
 
             });
 
             // Use a completion function
-            $("#fadeup").on("click", function() {
+            $("#fadeup").on("click", function () {
+                $("#theDiv").fadeTo("slow", "1.0", onComplete);
 
             });
 
             // Use multiple fade effects
-            $("#pulse").on("click", function() {
+            $("#pulse").on("click", function () {
+                $("#theDiv").fadeTo("fast", "0.3")
+                    .fadeTo("fast", 1.0)
+                    .fadeTo("fast", 0.3)
+                    .fadeTo("fast", 1.0)
+                    .fadeTo("fast", 0.3);
+
 
             });
         });
-        
+
         function onComplete() {
             $(this).text("Fading effect complete");
         }
@@ -42,7 +51,7 @@
         span {
             font-size: 16pt;
         }
-        
+
         button {
             margin: 5pt 5pt 0 0;
         }
