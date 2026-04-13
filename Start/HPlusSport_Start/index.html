@@ -23,6 +23,13 @@
       document.getElementById("cbProtein").addEventListener('change', function (evt) {
         updateProductView("proteinbar", evt.target.checked);
       });
+
+      $(".product-item").each(function () {
+        var prodName = encodeURIComponent($(this).children("h2").text());
+        var prodId = encodeURIComponent($(this).data("prod_id"));
+        var link = $("<a href='product.html?prodName=" + prodName + "&prodID=" + prodId + "'/>");
+        $(this).children("img").wrap(link);
+      });
     })
     function updateProductView(categoryName, bVisible) {
       var dataSelectorVal = "";
@@ -38,6 +45,8 @@
           break;
       }
       $(".product-item").has(dataSelectorVal).css('display', bVisible ? "" : "none");
+
+
     }
   </script>
 </head>
