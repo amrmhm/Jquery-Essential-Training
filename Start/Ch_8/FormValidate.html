@@ -7,8 +7,8 @@
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script src="jQueryValidation/jquery.validate.js"></script>
     <script type="text/javascript">
-        $(function() {
-
+        $(function () {
+            $("#theform").validate();
         });
     </script>
     <style type="text/css">
@@ -16,25 +16,35 @@
         span {
             font-size: 16pt;
         }
-        
+
         button {
             margin: 5pt 5pt 0 0;
         }
 
         #theform {
             width: fit-content;
-            background-color:rgb(190, 228, 242);
+            background-color: rgb(190, 228, 242);
         }
+
         #theform div {
             padding: 5pt;
         }
+
         #theform label {
             display: inline-block;
             vertical-align: top;
             width: 300px;
         }
-        #theform input:not([type=submit]), textarea {
-            width:250px;
+
+        #theform input:not([type=submit]),
+        textarea {
+            width: 250px;
+        }
+
+        #theform label.error {
+            display: block;
+            color: red;
+            margin-left: 8px;
         }
     </style>
 </head>
@@ -50,11 +60,11 @@
                 <legend>Please provide your personal information:</legend>
                 <div>
                     <label for="username">Name (required, at least 2 characters)</label>
-                    <input id="username" name="name" minlength="2" type="text" required="">    
+                    <input id="username" name="name" minlength="2" type="text" required="">
                 </div>
                 <div>
                     <label for="userage">Age (required)</label>
-                    <input id="userage" name="age" min="1" type="number" required="">    
+                    <input id="userage" name="age" min="1" type="number" required="">
                 </div>
                 <div>
                     <label for="useremail">E-Mail (required)</label>
