@@ -16,6 +16,25 @@
 
       $("#productName").text(prodName);
 
+      $.getJSON("product-data.json",
+        {
+          format: "json"
+        }, function (result) {
+          result.products.forEach(element => {
+            if (element.prod_id == prodID) {
+              $("#productStock").text(element.in_stock);
+              $("#productPrice").text(element.retail_price);
+              $("#productDesc").text(element.description);
+
+            }
+          })
+
+
+        }
+      )
+
+
+
     })
 
   </script>
