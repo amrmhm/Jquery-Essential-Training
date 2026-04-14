@@ -6,33 +6,45 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $("document").ready(function() {
-            $("#addCl").on("click", function(evt) {
+        $("document").ready(function () {
+            $("#addCl").on("click", function (evt) {
                 // Add a class to a set of elements
                 // $("#para1").addClass("pClass");
 
+                let elem = document.querySelector("#para1");
+                elem.classList.add("pClass");
+
             });
 
-            $("#rmCl").on("click", function(evt) {
+            $("#rmCl").on("click", function (evt) {
                 // Remove a class from a set of elements
                 // $("#example p").removeClass("pClass");
+                let elems = document.querySelectorAll("#example p");
+                elems.forEach(elem => {
+                    elem.classList.remove("pClass");
+                });
 
             });
 
-            $("#toggleCl").on("click", function(evt) {
+            $("#toggleCl").on("click", function (evt) {
                 // Toggle a class on a set of elements
                 // $("#example p").toggleClass("pClass");
-
+                let elems = document.querySelectorAll("#example p");
+                elems.forEach(elem => {
+                    elem.classList.toggle("pClass");
+                });
             });
 
             $("#changeText").on("click", () => {
                 // $("#example p:last").text("I've changed the last paragraph");
-
+                document.querySelector("#example p:last-of-type").textContent = "I've changed the last paragraph";
             });
 
             $("#newPara").on("click", () => {
                 // $("#example").append("<p>New Paragraph</p>");
-
+                let newP = document.createElement("p");
+                newP.appendChild(document.createTextNode("New Paragraph"));
+                document.querySelector("#example").appendChild(newP);
             });
 
         });
@@ -42,7 +54,7 @@
             color: green;
             text-transform: uppercase
         }
-        
+
         button {
             margin: 5pt 5pt 0 0;
         }
@@ -52,7 +64,8 @@
 <body>
     <h1>Miscellaneous Migration Features</h1>
     <div id="content">
-        <p>jQuery's CSS handling features have modern browser quivalents. Elements support a <code>classList</code> property to manipulate CSS classes.</p>
+        <p>jQuery's CSS handling features have modern browser quivalents. Elements support a <code>classList</code>
+            property to manipulate CSS classes.</p>
         <p><code>addClass()</code> equivalent is <code>classList.add()</code></p>
         <p><code>removeClass()</code> equivalent is <code>classList.remove()</code></p>
         <p><code>toggleClass()</code> equivalent is <code>classList.toggle()</code></p>
