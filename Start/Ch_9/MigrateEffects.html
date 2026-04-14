@@ -6,15 +6,19 @@
     <link rel="stylesheet" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             // Animate the properties of the element
-            $("#move").on("click", function() {
+            $("#move").on("click", function () {
                 // $("#theDiv").animate({ left: "500px", fontSize: "24pt", width: "500px" }, 1000, "swing");
+                $("#theDiv").addClass("animated");
 
             });
 
-            $("#fade").on("click", function() {
+            $("#fade").on("click", function () {
                 $("#theDiv").toggleClass("fadedout");
+            });
+            $("#theDiv").on("animationend", function (evt) {
+                $("#content").append("<p>Animation Complete</p>")
             });
 
         });
@@ -31,6 +35,29 @@
             border: 1px solid black;
             font-size: 16pt;
             cursor: pointer;
+            transition: all 1s ease-in-out;
+        }
+
+        #theDiv.animated {
+            width: 500px;
+            left: 500px;
+            background-color: azure;
+            font-size: 24pt;
+        }
+
+        #theDiv.fadedout {
+            animation: fadeOut 1s linear forwards;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                display: none;
+            }
         }
 
         button {
@@ -42,7 +69,8 @@
 <body>
     <h1>Migrating from jQuery Animations</h1>
     <div id="content">
-        <p>The jQuery <code>animate()</code> function provides a way to create smooth animations on the properties of an object.</p>
+        <p>The jQuery <code>animate()</code> function provides a way to create smooth animations on the properties of an
+            object.</p>
         <p>Modern browsers support CSS Animations and Transitions to perform the same kinds of effects.</p>
         <div id="theDiv">Animate Me</div>
         <button id="move">Animate Element</button>
