@@ -5,10 +5,16 @@
     <title>jQuery Plugin - Datatables</title>
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="DataTables/datatables.min.css" />
-    <script type="text/javascript" src="../jquery-3.7.1.min.js"></script> 
-    <script src="DataTables/datatables.min.js"></script>    
+    <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
+    <script src="DataTables/datatables.min.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
+            new DataTable("#exampletable", {
+                pageLength: 25,
+                search: {
+                    search: "london"
+                }
+            });
         });
     </script>
     <style type="text/css">
@@ -16,7 +22,7 @@
         span {
             font-size: 16pt;
         }
-        
+
         button {
             margin: 5pt 5pt 0 0;
         }
