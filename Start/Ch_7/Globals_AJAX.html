@@ -13,40 +13,53 @@
 
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $("document").ready(function() {
+        $("document").ready(function () {
             // Register the global event handlers for AJAX events
-            
-            // ajaxStart fires when the first request is about to be sent
 
-            
+            // ajaxStart fires when the first request is about to be sent
+            $(document).on("ajaxStart", function () {
+                console.log("AJAX starting");
+            })
+
             // ajaxStop fires when all requests have completed
 
-            
+            $(document).on("ajaxStop", function () {
+                console.log("AJAX request ended");
+            })
             // ajaxSend fires before a request is sent
 
-
+            $(document).on("ajaxSend", function () {
+                console.log("About to Send request for data...");
+            })
             // ajaxComplete fires when a request completes
+            $(document).on("ajaxComplete", function () {
+                console.log("Everything's finished!");
+            })
 
-            
             // ajaxError fires when an ajax request results in an error
+            $(document).on("ajaxError", errorFn)
 
-            
+
             // ajaxSuccess fires when an ajax request completes successfully
+            $(document).on("ajaxSuccess", function () {
+                console.log("Looks like everything worked!");
+            })
 
-            
             $("#btnGetData").on("click", getData)
         });
-              
+
         function getData() {
-            $.get("testdata.txt", successFn);
+            $.get("testdata1.txt", successFn);
         }
-        
+
         function successFn(result) {
             console.log("Setting result");
             $("#ajaxContent").append(result);
         }
         function errorFn(xhr, status, strErr) {
             alert(strErr);
+            console.log("Hmmm. Seems like there was a problem " + status);
+
         }
     </script>
 </head>
