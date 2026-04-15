@@ -6,18 +6,20 @@
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <script type="text/javascript" src="../jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
-        $("document").ready(function() {
-            $("#btnRun").on("click", function() {
+        $("document").ready(function () {
+            $("#btnRun").on("click", function () {
                 // Select all the <p> tags
+                // $("p").css("border", "3px solid red");
 
-                    
                 // Select everything with style class ".a"
+                // $(".a").css("border", "3px solid red");
 
-                
                 // Select an element with a specific ID
+                // $("#example").css("border", "3px solid red");
 
-                
+
                 // Select <p> tags with a class of ".b"
+                $("p.b").css("border", "3px solid red");
 
             });
         });
@@ -32,10 +34,13 @@
         <p>They use a very CSS-like syntax in order to do this. To take a few examples:</p>
         <ul id="list1">
             <li class="a"><code>$("<i>tag</i>")</code>: Select all of the &lt;tag&gt; elements</li>
-            <li class="a"><code>$("<i>.className</i>")</code>: Select all elements that have the <i>className</i> class applied</li>
-            <li class="b"><code>$("#identifier")</code>: Select the element with the id of <i>identifier</i></li>
-            <li class="b"><code>$("<i>tag.className</i>")</code>: Select all &lt;tag&gt; elements that have the <i>className</i> class
+            <li class="a"><code>$("<i>.className</i>")</code>: Select all elements that have the <i>className</i> class
                 applied</li>
+            <li class="b"><code>$("#identifier")</code>: Select the element with the id of <i>identifier</i></li>
+            <li class="b"><code>$("<i>tag.className</i>")</code>: Select all &lt;tag&gt; elements that have the
+                <i>className</i> class
+                applied
+            </li>
         </ul>
         <div id="example">
             <p class="a">This is paragraph 1</p>
